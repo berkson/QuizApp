@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
                 Intent(this@MainActivity, QuestionsActivity::class.java)
                     .also {
                         startActivity(it)
+                        finish()
                     }
             } else {
                 Toast
