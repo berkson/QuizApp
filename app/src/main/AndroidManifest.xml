@@ -15,7 +15,8 @@
         <activity
             android:name=".ui.QuestionsActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Base.Theme.QuizApp"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

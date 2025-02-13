@@ -8,4 +8,5 @@
     <string name="flag_question">A que País esta bandeira pertence?</string>
     <string name="some_country_flag">some country flag</string>
     <string name="check">Check</string>
+    <string name="progress_text">%d/%d</string>
 </resources>
