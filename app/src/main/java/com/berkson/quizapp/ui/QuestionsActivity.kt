@@ -2,6 +2,9 @@ package com.berkson.quizapp.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,6 +13,15 @@ import com.berkson.quizapp.R
 import com.berkson.quizapp.utils.Constants
 
 class QuestionsActivity : AppCompatActivity() {
+    private lateinit var progressBar: ProgressBar
+    private lateinit var textViewProgress: TextView
+    private lateinit var textViewQuestion: TextView
+    private lateinit var flagImage: ImageView
+    private lateinit var textViewOptionOne: TextView
+    private lateinit var textViewOptionTwo: TextView
+    private lateinit var textViewOptionthree: TextView
+    private lateinit var textViewOptionFour: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
