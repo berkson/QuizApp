@@ -68,7 +68,7 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
     }
 
     private fun showNextQuestion() {
-        val question = questionsList[selectedAnswer - 1]
+        val question = questionsList[selectedAnswer]
         flagImage.setImageResource(question.image)
         progressBar.progress = selectedAnswer
         textViewProgress.text = getString(R.string.progress_text, selectedAnswer, progressBar.max)
@@ -80,10 +80,11 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
 
         if (selectedAnswer == questionsList.size) {
             checkButton.text = getString(R.string.concluir).uppercase()
-            currentQuestion = questionsList[questionCounter]
         } else {
             checkButton.text = getString(R.string.check).uppercase()
+            currentQuestion = questionsList[questionCounter]
         }
+
 
         questionCounter++
         answered = false
