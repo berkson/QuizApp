@@ -16,9 +16,7 @@
 
     <style name="Theme.QuizApp" parent="Base.Theme.QuizApp" />
 
-    <style name="Theme.QuizApp.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="Theme.QuizApp.NoActionBar" >
         <item name="android:windowFullscreen">true</item>
     </style>
 </resources>
