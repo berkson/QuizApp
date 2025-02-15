@@ -9,4 +9,6 @@
     <string name="some_country_flag">some country flag</string>
     <string name="check">Check</string>
     <string name="progress_text">%d/%d</string>
+    <string name="concluir">concluir</string>
+    <string name="next">next</string>
 </resources>
