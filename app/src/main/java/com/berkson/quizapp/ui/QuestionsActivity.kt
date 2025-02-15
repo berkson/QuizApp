@@ -70,15 +70,15 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
     private fun showNextQuestion() {
         val question = questionsList[questionCounter]
         flagImage.setImageResource(question.image)
-        progressBar.progress = selectedAnswer
-        textViewProgress.text = getString(R.string.progress_text, selectedAnswer, progressBar.max)
+        progressBar.progress = questionCounter
+        textViewProgress.text = getString(R.string.progress_text, questionCounter, progressBar.max)
         textViewQuestion.text = question.question
         textViewOptionOne.text = question.optionOne
         textViewOptionTwo.text = question.optionTwo
         textViewOptionThree.text = question.optionThree
         textViewOptionFour.text = question.optionFour
 
-        if (selectedAnswer == questionsList.size) {
+        if (questionCounter == questionsList.size) {
             checkButton.text = getString(R.string.concluir).uppercase()
         } else {
             checkButton.text = getString(R.string.check).uppercase()
