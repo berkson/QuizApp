@@ -180,5 +180,24 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
         }
 
         checkButton.text = getString(R.string.next).uppercase()
+        showSolution()
+    }
+
+    private fun showSolution() {
+         selectedAnswer = currentQuestion.correctAnswer
+
+        when(selectedAnswer){
+            1 -> textViewOptionOne.background =
+                ContextCompat.getDrawable(this, R.drawable.correct_option_border_bg)
+
+            2 -> textViewOptionTwo.background =
+                ContextCompat.getDrawable(this, R.drawable.correct_option_border_bg)
+
+            3 -> textViewOptionThree.background =
+                ContextCompat.getDrawable(this, R.drawable.correct_option_border_bg)
+
+            4 -> textViewOptionFour.background =
+                ContextCompat.getDrawable(this, R.drawable.correct_option_border_bg)
+        }
     }
 }
