@@ -68,7 +68,7 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
     }
 
     private fun showNextQuestion() {
-        val question = questionsList[selectedAnswer]
+        val question = questionsList[questionCounter]
         flagImage.setImageResource(question.image)
         progressBar.progress = selectedAnswer
         textViewProgress.text = getString(R.string.progress_text, selectedAnswer, progressBar.max)
@@ -108,7 +108,7 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
 
     private fun selectedOption(textView: TextView, selectedOptionNumber: Int) {
         resetOptions()
-        questionCounter = selectedOptionNumber
+        selectedAnswer = selectedOptionNumber
 
         textView.setTextColor(Color.parseColor("#363A43"))
         textView.setTypeface(textView.typeface, Typeface.BOLD)
@@ -139,6 +139,7 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
                 if (!answered) {
                     checkAnswer()
                 } else {
+                    resetOptions()
                     showNextQuestion()
                 }
                 selectedAnswer = 0
