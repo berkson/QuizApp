@@ -20,7 +20,7 @@
         android:textStyle="bold" />
 
     <ImageView
-            android:id="@+id/iv_trophy"
+        android:id="@+id/iv_trophy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/imagem"
@@ -60,11 +60,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/finish"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/purple"
         android:backgroundTint="@color/white"
-        />
+        android:text="@string/finish"
+        android:textColor="@color/purple"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
