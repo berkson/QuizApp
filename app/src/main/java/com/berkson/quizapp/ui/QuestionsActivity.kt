@@ -34,6 +34,8 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
     private var selectedAnswer = 0
     private lateinit var currentQuestion: Question
     private var answered = false
+    private lateinit var name: String
+    private var score = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +68,10 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
         questionsList = Constants.getQuestions()
 
         showNextQuestion()
+
+        if (intent.hasExtra(Constants.USER_NAME)) {
+            name = intent.extras?.getString(Constants.USER_NAME).toString()
+        }
     }
 
     private fun showNextQuestion() {
@@ -90,7 +96,11 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
             checkButton.text = getString(R.string.concluir).uppercase()
             Intent(this, ResultActivity::class.java)
                 .also {
+                    it.putExtra(Constants.USER_NAME, name)
+                    it.putExtra(Constants.SCORE, score)
+                    it.putExtra(Constants.TOTAL_QUESTIONS, questionsList.size)
                     startActivity(it)
+                    finish()
                 }
         }
 
@@ -159,6 +169,7 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
     private fun checkAnswer() {
         answered = true
         if (selectedAnswer == currentQuestion.correctAnswer) {
+            score++
             highlight(selectedAnswer)
         } else {
             when (selectedAnswer) {
