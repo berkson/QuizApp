@@ -9,6 +9,7 @@ import android.view.View.OnClickListener
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -18,6 +19,7 @@ import com.berkson.quizapp.R
 import com.berkson.quizapp.model.Question
 import com.berkson.quizapp.utils.Constants
 import com.google.android.material.button.MaterialButton
+import kotlin.time.Duration
 
 class QuestionsActivity : AppCompatActivity(), OnClickListener {
     private lateinit var progressBar: ProgressBar
@@ -168,28 +170,32 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
     }
 
     private fun checkAnswer() {
-        answered = true
-        if (selectedAnswer == currentQuestion.correctAnswer) {
-            score++
-            highlight(selectedAnswer)
-        } else {
-            when (selectedAnswer) {
-                1 -> textViewOptionOne.background =
-                    ContextCompat.getDrawable(this, R.drawable.wrong_option_border_bg)
+        if (selectedAnswer != 0) {
+            answered = true
+            if (selectedAnswer == currentQuestion.correctAnswer) {
+                score++
+                highlight(selectedAnswer)
+            } else {
+                when (selectedAnswer) {
+                    1 -> textViewOptionOne.background =
+                        ContextCompat.getDrawable(this, R.drawable.wrong_option_border_bg)
 
-                2 -> textViewOptionTwo.background =
-                    ContextCompat.getDrawable(this, R.drawable.wrong_option_border_bg)
+                    2 -> textViewOptionTwo.background =
+                        ContextCompat.getDrawable(this, R.drawable.wrong_option_border_bg)
 
-                3 -> textViewOptionThree.background =
-                    ContextCompat.getDrawable(this, R.drawable.wrong_option_border_bg)
+                    3 -> textViewOptionThree.background =
+                        ContextCompat.getDrawable(this, R.drawable.wrong_option_border_bg)
 
-                4 -> textViewOptionFour.background =
-                    ContextCompat.getDrawable(this, R.drawable.wrong_option_border_bg)
+                    4 -> textViewOptionFour.background =
+                        ContextCompat.getDrawable(this, R.drawable.wrong_option_border_bg)
+                }
             }
-        }
 
-        checkButton.text = getString(R.string.next).uppercase()
-        showSolution()
+            checkButton.text = getString(R.string.next).uppercase()
+            showSolution()
+        } else {
+            Toast.makeText(this, getString(R.string.select_one_option), Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun showSolution() {
