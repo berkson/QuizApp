@@ -1,5 +1,6 @@
 package com.berkson.quizapp.ui
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -68,21 +69,29 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
     }
 
     private fun showNextQuestion() {
-        val question = questionsList[questionCounter]
-        flagImage.setImageResource(question.image)
-        progressBar.progress = questionCounter
-        textViewProgress.text = getString(R.string.progress_text, questionCounter, progressBar.max)
-        textViewQuestion.text = question.question
-        textViewOptionOne.text = question.optionOne
-        textViewOptionTwo.text = question.optionTwo
-        textViewOptionThree.text = question.optionThree
-        textViewOptionFour.text = question.optionFour
 
-        if (questionCounter == questionsList.size) {
-            checkButton.text = getString(R.string.concluir).uppercase()
-        } else {
+
+        if (questionCounter < questionsList.size) {
             checkButton.text = getString(R.string.check).uppercase()
             currentQuestion = questionsList[questionCounter]
+
+            resetOptions()
+            val question = questionsList[questionCounter]
+            flagImage.setImageResource(question.image)
+            progressBar.progress = questionCounter
+            textViewProgress.text =
+                getString(R.string.progress_text, questionCounter, progressBar.max)
+            textViewQuestion.text = question.question
+            textViewOptionOne.text = question.optionOne
+            textViewOptionTwo.text = question.optionTwo
+            textViewOptionThree.text = question.optionThree
+            textViewOptionFour.text = question.optionFour
+        } else {
+            checkButton.text = getString(R.string.concluir).uppercase()
+            Intent(this, ResultActivity::class.java)
+                .also {
+                    startActivity(it)
+                }
         }
 
 
@@ -173,6 +182,7 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
 
     private fun showSolution() {
         selectedAnswer = currentQuestion.correctAnswer
+
         highlight(selectedAnswer)
     }
 
