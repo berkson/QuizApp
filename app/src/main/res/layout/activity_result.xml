@@ -44,7 +44,7 @@
         android:textColor="@android:color/white"
         android:textSize="22sp"
         android:textStyle="bold"
-        tools:text="Username" />
+        tools:text="Nome Usuário" />
 
     <TextView
         android:id="@+id/textview_score"
@@ -57,13 +57,14 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/finish_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@android:color/white"
         android:text="@string/finish"
-        android:textColor="@color/purple"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/purple"
+        android:backgroundTint="@color/white"
+        />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
