@@ -76,17 +76,16 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
 
     private fun showNextQuestion() {
 
-
         if (questionCounter < questionsList.size) {
             checkButton.text = getString(R.string.check).uppercase()
             currentQuestion = questionsList[questionCounter]
-
             resetOptions()
             val question = questionsList[questionCounter]
             flagImage.setImageResource(question.image)
-            progressBar.progress = questionCounter
+            val progressBarValue = questionCounter + 1
+            progressBar.progress = progressBarValue
             textViewProgress.text =
-                getString(R.string.progress_text, questionCounter, progressBar.max)
+                getString(R.string.progress_text, progressBarValue, progressBar.max)
             textViewQuestion.text = question.question
             textViewOptionOne.text = question.optionOne
             textViewOptionTwo.text = question.optionTwo
@@ -94,14 +93,16 @@ class QuestionsActivity : AppCompatActivity(), OnClickListener {
             textViewOptionFour.text = question.optionFour
         } else {
             checkButton.text = getString(R.string.concluir).uppercase()
-            Intent(this, ResultActivity::class.java)
-                .also {
-                    it.putExtra(Constants.USER_NAME, name)
-                    it.putExtra(Constants.SCORE, score)
-                    it.putExtra(Constants.TOTAL_QUESTIONS, questionsList.size)
-                    startActivity(it)
-                    finish()
-                }
+            checkButton.setOnClickListener {
+                Intent(this, ResultActivity::class.java)
+                    .also {
+                        it.putExtra(Constants.USER_NAME, name)
+                        it.putExtra(Constants.SCORE, score)
+                        it.putExtra(Constants.TOTAL_QUESTIONS, questionsList.size)
+                        startActivity(it)
+                        finish()
+                    }
+            }
         }
 
 
