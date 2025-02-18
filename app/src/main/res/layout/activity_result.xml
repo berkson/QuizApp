@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context=".ResultActivity">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".ui.ResultActivity">
 
     <TextView
         android:id="@+id/text_result"
@@ -19,7 +20,7 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/iv_trophy"
+            android:id="@+id/iv_trophy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/imagem"
@@ -54,9 +55,9 @@
         android:textSize="20sp"
         tools:text="Your Score is 9 out of 10" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/finish_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@android:color/white"
