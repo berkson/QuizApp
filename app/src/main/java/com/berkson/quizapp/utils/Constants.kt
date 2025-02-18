@@ -4,6 +4,9 @@ import com.berkson.quizapp.R
 import com.berkson.quizapp.model.Question
 
 object Constants {
+    const val USER_NAME = "user_name"
+    const val TOTAL_QUESTIONS = "total_questions"
+    const val SCORE = "correct_answers"
 
     fun getQuestions(): MutableList<Question> {
         val question = "A que País esta bandeira pertence?"

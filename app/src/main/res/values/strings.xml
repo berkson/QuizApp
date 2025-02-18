@@ -11,4 +11,9 @@
     <string name="progress_text">%d/%d</string>
     <string name="concluir">concluir</string>
     <string name="next">next</string>
+    <string name="congratulations">Parabéns!</string>
+    <string name="finish">finalizado</string>
+    <string name="resultado">Resultado</string>
+    <string name="imagem">imagem</string>
+    <string name="sua_pontua_o_foi_pontos">Sua pontuação foi %d de %d questões</string>
 </resources>
